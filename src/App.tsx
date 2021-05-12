@@ -3,6 +3,7 @@ import './App.css';
 import { Lists, CurrentList } from './components';
 import { FAKE_LISTS } from './constants';
 import { List } from './interfaces';
+
 interface AppState {
   lists: { [key: string]: List };
   currentList?: List;

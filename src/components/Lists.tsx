@@ -8,10 +8,22 @@ interface ListsProps {
 
 export const Lists: React.FC<ListsProps> = ({ lists, onListSelected}) => {
   return (
-    <ul className="p-3 list-group">
-      <li className="list-group-item">List 1</li>
-      <li className="list-group-item">List 2</li>
-      <li className="list-group-item">List 3</li>
-    </ul>
+    <div className="p-3">
+      {!!lists ? (
+        <ul className="nav flex-column">
+          {Object.keys(lists).map(key => (
+            <li
+              className="nav-item"
+              key={key}
+              onClick={() => onListSelected(key)}>
+                <button type="button" className="btn btn-link">{lists[key].name}</button>
+              </li>
+          ))}
+        </ul>
+      ) : (
+        <div>Create a list.</div>
+      )}
+    </div>
+
   );
 };

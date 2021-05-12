@@ -10,6 +10,7 @@ export const CurrentList: React.FC<CurrentListProps> = ({ list }) => {
     <div className="p-3">
       {!!list ? (
         <div>
+          <h2>{list.name}</h2>
           <div>Items go here...</div>
           <button type="button" className="btn btn-primary">Add an item</button>
         </div>
