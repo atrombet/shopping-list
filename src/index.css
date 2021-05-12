@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.green {
+  background-color: green;
+  height: 50vh;
+}
+
+.blue {
+  background-color: blue;
+  height: 50vh;
+}
