@@ -1,7 +1,8 @@
 import React from 'react';
+import { List } from '../interfaces';
 
 interface ListsProps {
-  lists: any;
+  lists: { [key: string]: List };
   onListSelected: (id: string) => void
 }
 
