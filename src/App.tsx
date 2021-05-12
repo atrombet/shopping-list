@@ -2,17 +2,17 @@ import { useState } from 'react';
 import './App.css';
 import { Lists, CurrentList } from './components';
 import { FAKE_LISTS } from './constants';
-import { List } from './interfaces';
+import { Item, List } from './interfaces';
 
 interface AppState {
   lists: { [key: string]: List };
-  currentList?: List;
+  currentListId: string;
   loading: boolean;
 }
 
 const initState: AppState = {
   lists: FAKE_LISTS,
-  currentList: undefined,
+  currentListId: '',
   loading: false
 }
 
@@ -25,10 +25,29 @@ const App = () => {
     setState(state => {
       return {
         ...state,
-        currentList: state.lists[id]
+        currentListId: id
       };
     });
   };
+
+  // Define a method to add an item to a list.
+  const addItemToList = (id: string, item: Partial<Item>) => {
+    setState(state => {
+      return {
+        ...state,
+        lists: {
+          ...state.lists,
+          [id]: {
+            ...state.lists[id],
+            items: [
+              ...state.lists[id].items,
+              item as Item
+            ]
+          }
+        }
+      }
+    })
+  }
 
   return (
     <div className="container">
@@ -37,7 +56,9 @@ const App = () => {
           <Lists lists={state.lists} onListSelected={updateCurrentList}/>
         </div>
         <div className="col-9">
-          <CurrentList list={state.currentList}/>
+          <CurrentList
+            list={state.lists[state.currentListId]}
+            addItemToList={addItemToList}/>
         </div>
       </div>
     </div>
