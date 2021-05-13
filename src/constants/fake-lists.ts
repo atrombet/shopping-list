@@ -4,11 +4,11 @@ export const FAKE_LISTS: { [key: string]: List } = {
   '1': {
     id: '1',
     name: 'Grocery List',
-    items: []
+    items: {}
   },
   '2': {
     id: '2',
     name: 'Home Improvement',
-    items: []
+    items: {}
   }
 }

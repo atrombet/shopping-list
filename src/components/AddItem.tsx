@@ -24,7 +24,7 @@ export const AddItem: React.FC<AddItemProps> = ({ addItem }) => {
         <input className="form-control" placeholder="Add an item" value={itemText} onChange={e => setItemText(e.target.value)} />
       </div>
       <div className="col-auto">
-        <button type="button" className="btn btn-primary ml-2" onClick={onItemAdded}>Add Item</button>
+        <button type="button" className="btn btn-primary" onClick={onItemAdded}>Add Item</button>
       </div>
     </div>
   );

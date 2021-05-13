@@ -1,6 +1,7 @@
 import React from 'react';
 import { Item, List } from '../interfaces';
 import { AddItem } from './AddItem';
+import { ListItem } from './ListItem';
 
 interface CurrentListProps {
   list: List | undefined;
@@ -18,7 +19,13 @@ export const CurrentList: React.FC<CurrentListProps> = ({ list, addItemToList })
       {!!list ? (
         <div>
           <h2>{list.name}</h2>
-          <div className="mb-3">No items on this list yet...</div>
+          <div className="my-3">
+            {!Object.keys(list.items).length ? (
+              <div>No items on this list yet...</div>
+            ) : Object.keys(list.items).map(key => (
+              <ListItem item={list.items[key]} onCompleteItem={() => {}} />
+            ))}
+          </div>
           <AddItem addItem={addItem} />
         </div>
       ) : (

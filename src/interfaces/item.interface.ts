@@ -1,5 +1,5 @@
 export interface Item {
-  id?: string;
+  id: string;
   text: string;
   completed: boolean;
   dateAdded: Date;

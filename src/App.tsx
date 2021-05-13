@@ -20,7 +20,7 @@ const App = () => {
   // Define app state.
   const [ state, setState ] = useState<AppState>(initState);
 
-  // Define a method to update the currentList when the user selects a list.
+  // Define a function to update the currentList when the user selects a list.
   const updateCurrentList = (id: string) => {
     setState(state => {
       return {
@@ -30,8 +30,24 @@ const App = () => {
     });
   };
 
+  // Define a function to complete a list item.
+  const completeItem = (listId: string, itemId: string) => {
+    setState(state => {
+      const item = state.lists[listId].items[itemId];
+      return state;
+    });
+  };
+
+  // TODO: save the item with an API call and get the new ID.
+  // The this function can go away.
+  const getNextItemId = (listId: string): string => {
+    return (Math.max(...Object.keys(state.lists[listId].items).map(key => parseInt(key, 10))) + 1).toString();
+  }
+
   // Define a method to add an item to a list.
   const addItemToList = (id: string, item: Partial<Item>) => {
+    const newItemId = getNextItemId(id);
+    item.id = newItemId;
     setState(state => {
       return {
         ...state,
@@ -39,18 +55,19 @@ const App = () => {
           ...state.lists,
           [id]: {
             ...state.lists[id],
-            items: [
+            items: {
               ...state.lists[id].items,
-              item as Item
-            ]
+              [newItemId]: item as Item
+            }
           }
         }
-      }
-    })
-  }
+      };
+    });
+  };
 
   return (
     <div className="container">
+      <h1 className="mb-5">Shopping List App</h1>
       <div className="row">
         <div className="col-3 border-end">
           <Lists lists={state.lists} onListSelected={updateCurrentList}/>
