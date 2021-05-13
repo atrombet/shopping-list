@@ -8,6 +8,12 @@ interface AddItemProps {
 export const AddItem: React.FC<AddItemProps> = ({ addItem }) => {
   const [ itemText, setItemText ] = useState('');
 
+  const handleKeyPress = (event: any) => {
+    if (event.key === 'Enter') {
+      onItemAdded();
+    }
+  }
+
   const onItemAdded = () => {
     const newItem: Partial<Item> = {
       text: itemText,
@@ -21,7 +27,12 @@ export const AddItem: React.FC<AddItemProps> = ({ addItem }) => {
   return (
     <div className="row align-items-center">
       <div className="col-auto">
-        <input className="form-control" placeholder="Add an item" value={itemText} onChange={e => setItemText(e.target.value)} />
+        <input
+          className="form-control"
+          placeholder="Add an item"
+          value={itemText}
+          onChange={e => setItemText(e.target.value)}
+          onKeyPress={handleKeyPress} />
       </div>
       <div className="col-auto">
         <button type="button" className="btn btn-primary" onClick={onItemAdded}>Add Item</button>

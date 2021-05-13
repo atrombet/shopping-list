@@ -41,7 +41,12 @@ const App = () => {
   // TODO: save the item with an API call and get the new ID.
   // The this function can go away.
   const getNextItemId = (listId: string): string => {
-    return (Math.max(...Object.keys(state.lists[listId].items).map(key => parseInt(key, 10))) + 1).toString();
+    const idArr = Object.keys(state.lists[listId].items);
+    if (!!idArr.length) {
+      return (Math.max(...idArr.map(key => parseInt(key, 10))) + 1).toString();
+    } else {
+      return "1";
+    }
   }
 
   // Define a method to add an item to a list.
