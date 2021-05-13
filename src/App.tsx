@@ -34,7 +34,20 @@ const App = () => {
   const completeItem = (listId: string, itemId: string) => {
     setState(state => {
       const item = state.lists[listId].items[itemId];
-      return state;
+      item.completed = true;
+      return {
+        ...state,
+        lists: {
+          ...state.lists,
+          [listId]: {
+            ...state.lists[listId],
+            items: {
+              ...state.lists[listId].items,
+              [itemId]: item
+            }
+          }
+        }
+      };
     });
   };
 
@@ -80,7 +93,8 @@ const App = () => {
         <div className="col-9">
           <CurrentList
             list={state.lists[state.currentListId]}
-            addItemToList={addItemToList}/>
+            addItemToList={addItemToList}
+            completeItem={completeItem} />
         </div>
       </div>
     </div>

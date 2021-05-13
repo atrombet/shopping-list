@@ -3,7 +3,7 @@ import { Item } from '../interfaces';
 
 interface ListItemProps {
   item: Item;
-  onCompleteItem: (id: string) => void
+  onCompleteItem: (itemId: string) => void
 }
 
 export const ListItem: React.FC<ListItemProps> = ({ item, onCompleteItem }) => {
