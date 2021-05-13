@@ -33,7 +33,7 @@ export const CurrentList: React.FC<CurrentListProps> = ({ list, addItemToList, c
         <ListItem item={item} key={item.id} onCompleteItem={onCompleteItem} />
       ));
       completedItems = items.filter(item => item.completed).map(item => (
-        <div className="completed-item" key={item.id}>{item.text}</div>
+        <ListItem item={item} key={item.id} onCompleteItem={() => {}} />
       ));
     }
   }
@@ -43,13 +43,13 @@ export const CurrentList: React.FC<CurrentListProps> = ({ list, addItemToList, c
       {!!list ? (
         <div>
           <h2>{list.name}</h2>
-          <div className="my-3">
+          <AddItem addItem={addItem} />
+          <div className="py-3 mb-3 border-bottom">
             {itemsExist ?
               todos :
               <div>No items on this list yet...</div>
             }
           </div>
-          <AddItem addItem={addItem} />
           {completedItems}
         </div>
       ) : (
