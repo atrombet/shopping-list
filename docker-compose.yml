@@ -23,19 +23,17 @@ services:
   #   depends_on:
   #       - db
 
-  # api:
-  #   build:
-  #     context: .
-  #     dockerfile: ./api/dockerfile
-  #   stdin_open: true
-  #   tty: true
-  #   depends_on:
-  #     - db
-  #   ports:
-  #     - "9090:9090"
-  #   volumes:
-  #     - ./api:/app
-  #     - /app/node_modules
+  api:
+    build:
+      context: .
+      dockerfile: ./api/dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./api:/app
+      - /app/node_modules
 
   client:
     build:
@@ -43,6 +41,8 @@ services:
       dockerfile: ./web/dockerfile
     stdin_open: true
     tty: true
+    depends_on:
+      - api
     volumes:
       - ./web:/app
       - /app/node_modules
