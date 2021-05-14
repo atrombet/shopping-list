@@ -1,0 +1,50 @@
+version: '3.7'
+services:
+  # db:
+  #   image: postgres
+  #   restart: always
+  #   environment:
+  #     - DATABASE_HOST=127.0.0.1
+  #     - POSTGRES_USER=root
+  #     - POSTGRES_PASSWORD=password
+  #     - POSTGRES_DB=wisely_test
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+
+  # pgadmin-compose:
+  #   image: dpage/pgadmin4
+  #   environment:
+  #       PGADMIN_DEFAULT_EMAIL: "root@email.com"
+  #       PGADMIN_DEFAULT_PASSWORD: "root123!"
+  #   ports:
+  #       - "16543:80"
+  #   depends_on:
+  #       - db
+
+  # api:
+  #   build:
+  #     context: .
+  #     dockerfile: ./api/dockerfile
+  #   stdin_open: true
+  #   tty: true
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./api:/app
+  #     - /app/node_modules
+
+  client:
+    build:
+      context: .
+      dockerfile: ./web/dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
