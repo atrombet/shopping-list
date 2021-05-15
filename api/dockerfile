@@ -1,0 +1,16 @@
+FROM node:erbium-alpine
+ARG BUILD_ENV=development
+
+WORKDIR /app
+
+COPY ./api/package.json /app
+
+# This is for hot reloading with nodemon.
+RUN npm install -g typescipt
+RUN npm install
+
+COPY ./api /app
+
+EXPOSE 4000
+
+CMD npm run dev
