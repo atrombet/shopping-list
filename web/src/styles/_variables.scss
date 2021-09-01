@@ -1,0 +1,36 @@
+:root {
+  // Colors
+  --white: #FFFFFF;
+
+  --gray-lighter: #FAFAFA;
+  --gray-light: #F4F4F4;
+  --gray: #DCDCDC;
+  --gray-dark: #ADADAD;
+  --gray-darker: #555555;
+
+  --black: #000000;
+
+  --purple-light: #9C4DCC;
+  --purple: #6A1B9A;
+  --purple-dark: #38006B;
+
+  // Palettte
+  --primary: var(--gray-lighter);
+  --primary-dark: var(--gray-light);
+  --primary-darker: var(--gray-lighter);
+
+  --accent-light: var(--purple-light);
+  --accent: var(--purple);
+  --accent-dark: var(--purple-dark);
+
+  // User Feedback
+  --success: #4caf50;
+  --info: #2196f3;
+  --warn: #ff9800;
+  --error: #f44336;
+
+  // Sizes
+  --side-nav-width: 250px;
+
+  // Typeography
+}
