@@ -1,5 +1,5 @@
 :root {
-  // Colors
+  // Generic Colors
   --white: #FFFFFF;
 
   --gray-lighter: #FAFAFA;
@@ -29,8 +29,28 @@
   --warn: #ff9800;
   --error: #f44336;
 
-  // Sizes
+  // App Wide Vars
+  --app-bg: var(--gray-lighter);
+
+  // Side Nav
+  --side-nav-bg: var(--gray-light);
   --side-nav-width: 250px;
+  --side-nav-border: 1px solid var(--gray);
 
   // Typeography
+  --font-nunito: 'Nunito', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+
+  --font-weight-thin: 100;
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-md: 15px;
+  --font-size-lg: 18px;
+  --font-size-xl: 21px;
+  --font-size-2xl: 24px;
 }

@@ -1,5 +1,52 @@
 @import "./styles/_variables";
 
+/*****************************************
+ * Modules
+ *****************************************/
+@import "./styles/_icon";
+
+/*****************************************
+ * Typography
+ *****************************************/
+html, body {
+  font-family: var(--font-roboto);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-md);
+  background-color: var(--app-bg);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-nunito);
+}
+
+h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  color: var(--purple);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-thin);
+}
+
+
+
 .completed-item {
   color: #DDDDDD;
   text-decoration: line-through;

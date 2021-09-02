@@ -5,4 +5,5 @@ export interface List {
   name: string;
   type?: string;
   items: { [key: string]: Item };
+  icon: string;
 }

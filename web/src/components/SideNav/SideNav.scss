@@ -1,3 +1,24 @@
 .sideNav {
+  min-width: var(--side-nav-width);
+  background-color: var(--side-nav-bg);
+  border-right: var(--side-nav-border);
+  padding: 48px 32px;
+  height: calc(100vh - 96px);
 
+  &__list {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  &__listItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+
+  &__listName {
+    font-weight: var(--font-weight-bold);
+    margin-left: 8px;
+  }
 }
