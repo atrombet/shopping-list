@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { Lists, CurrentList, SideNav } from './components';
+import { CurrentList, SideNav } from './components';
 import { FAKE_LISTS } from './constants';
 import { Item, List } from './interfaces';
 
@@ -84,17 +84,15 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-3">
-          <SideNav lists={state.lists} onListSelected={updateCurrentList}/>
-        </div>
-        <div className="col-9">
-          <CurrentList
-            list={state.lists[state.currentListId]}
-            addItemToList={addItemToList}
-            completeItem={completeItem} />
-        </div>
+    <div className="app">
+      <div>
+        <SideNav lists={state.lists} onListSelected={updateCurrentList}/>
+      </div>
+      <div>
+        <CurrentList
+          list={state.lists[state.currentListId]}
+          addItemToList={addItemToList}
+          completeItem={completeItem} />
       </div>
     </div>
   );

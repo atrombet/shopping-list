@@ -3,8 +3,8 @@ export interface Item {
   text: string;
   completed: boolean;
   dateAdded: Date;
+  type: 'item' | 'header';
   dateScheduled?: Date;
   dateCompleted?: Date;
-  itemType?: string;
   store?: string;
 }

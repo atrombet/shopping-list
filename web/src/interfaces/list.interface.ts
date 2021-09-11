@@ -6,4 +6,5 @@ export interface List {
   type?: string;
   items: { [key: string]: Item };
   icon: string;
+  note?: string;
 }

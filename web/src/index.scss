@@ -3,6 +3,7 @@
 /*****************************************
  * Modules
  *****************************************/
+@import "./styles/app";
 @import "./styles/_icon";
 
 /*****************************************
@@ -15,37 +16,31 @@ html, body {
   background-color: var(--app-bg);
 }
 
-h1, h2, h3 {
-  font-family: var(--font-nunito);
-}
-
 h1 {
   font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-semi-bold);
+  font-weight: var(--font-weight-bold);
 }
 
 h2 {
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semi-bold);
+  font-weight: var(--font-weight-bold);
 }
 
 h3 {
   font-size: var(--font-size-lg);
   color: var(--purple);
-  font-weight: var(--font-weight-semi-bold);
+  font-weight: var(--font-weight-bold);
 }
 
 h4 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
 }
 
 h5 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-thin);
 }
-
-
 
 .completed-item {
   color: #DDDDDD;

@@ -29,22 +29,22 @@
   --warn: #ff9800;
   --error: #f44336;
 
+  // Borders
+  --border: 1px solid var(--gray);
+
   // App Wide Vars
   --app-bg: var(--gray-lighter);
 
   // Side Nav
   --side-nav-bg: var(--gray-light);
   --side-nav-width: 250px;
-  --side-nav-border: 1px solid var(--gray);
 
   // Typeography
-  --font-nunito: 'Nunito', sans-serif;
   --font-roboto: 'Roboto', sans-serif;
 
   --font-weight-thin: 100;
   --font-weight-light: 200;
   --font-weight-normal: 400;
-  --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
 
   --font-size-xs: 10px;

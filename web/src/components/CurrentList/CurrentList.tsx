@@ -1,7 +1,8 @@
 import React from 'react';
-import { Item, List } from '../interfaces';
-import { AddItem } from './AddItem';
-import { ListItem } from './ListItem';
+import { Item, List } from '../../interfaces';
+import { AddItem } from '../AddItem';
+import { ListItem } from '../ListItem';
+import './CurrentList.scss';
 
 interface CurrentListProps {
   list: List | undefined;
@@ -26,12 +27,14 @@ export const CurrentList: React.FC<CurrentListProps> = ({ list, addItemToList, c
 
 
   if (!!list) {
-    itemsExist = !!list && !!Object.keys(list.items).length;
+    itemsExist = !!Object.keys(list.items).length;
     if (itemsExist) {
       const items = Object.keys(list.items).map(key => list.items[key]);
       todos = items.filter(item => !item.completed).map(item => (
-        <ListItem item={item} key={item.id} onCompleteItem={onCompleteItem} />
-      ));
+        item.type === 'header'
+          ? <h3 className="currentList__header">{item.text}</h3>
+          : <ListItem item={item} key={item.id} onCompleteItem={onCompleteItem} />
+        ));
       completedItems = items.filter(item => item.completed).map(item => (
         <div className="completed-item" key={item.id}>{item.text}</div>
       ));
@@ -39,10 +42,14 @@ export const CurrentList: React.FC<CurrentListProps> = ({ list, addItemToList, c
   }
 
   return (
-    <div className="p-3">
+    <div className="currentList">
       {!!list ? (
         <div>
-          <h2>{list.name}</h2>
+          <h1 className="currentList__name">
+            {list.name}
+            <i className="icon">people</i>
+          </h1>
+          <div className="currentList__note">{list.note || 'Add note'}</div>
           <div className="my-3">
             {itemsExist ?
               todos :
